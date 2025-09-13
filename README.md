@@ -6,7 +6,6 @@ It helps you easily track income, expenses, and overall balance with a clean, re
 - 📊 **Expense & Income Tracking** — Add, view, and delete transactions easily.
 - 🔒 **Secure Authentication** — User sign-up, login, and protected routes.
 - 📱 **Responsive UI** — Built with TailwindCSS for a modern mobile-first design.
-- 🌙 **Dark / Light Mode** (optional if you add it).
 - ⚡ **Fast & Scalable** — MERN stack with RESTful APIs.
 - 🗄️ **Persistent Data** — MongoDB for reliable storage.
 - 

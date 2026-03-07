@@ -11,18 +11,9 @@ const loanRoutes = require('./routes/loanRoutes');
 
 const app = express();
 
-app.use(
-  cors({
-    origin: [
-      "https://trackpocket.vercel.app",
-      "http://localhost:5173",
-      process.env.CLIENT_URL
-    ].filter(Boolean),
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "Origin", "X-Requested-With", "Accept"],
-    credentials: true,
-  })
-);
+app.use(cors());
+app.options("*", cors());
+
 
 app.use(express.json());
 

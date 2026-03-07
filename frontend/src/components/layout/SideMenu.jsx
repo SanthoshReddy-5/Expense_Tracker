@@ -1,16 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { SIDE_MENU_DATA } from '../../utils/data';
 import { UserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import CharAvatar from '../common/CharAvatar';
+import Modal from '../common/Modal';
 
-const SideMenu = ({activeMenu}) => {
-    const {user, clearUser} = useContext(UserContext);
+const SideMenu = ({ activeMenu }) => {
+    const { user, clearUser } = useContext(UserContext);
     const navigate = useNavigate();
+    const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
 
     const handleClick = (route) => {
         if (route === "logout") {
-            handleLogout();
+            setIsLogoutModalOpen(true);
             return;
         }
         navigate(route);
@@ -24,23 +26,36 @@ const SideMenu = ({activeMenu}) => {
 
     return (
         <div className='w-64 h-[calc(100vh-61px)] bg-black border-r border-white p-5 sticky top-[61px] z-20'>
-           <div className="flex flex-col items-center justify-center gap-5 mt-3 mb-7">
-            {user?.profileImageUrl?(<img src={user?.profileImageUrl || ""} alt='profile picture' className='w-20 h-20 bg-white rounded-full'/>):
-            (<CharAvatar fullName={user?.fullName} width="w-20" height="h-20" style="text-xl"/>)}
+            <div className="flex flex-col items-center justify-center gap-5 mt-3 mb-7">
+                <CharAvatar fullName={user?.fullName} width="w-20" height="h-20" style="text-xl" />
 
-            <h5 className='text-white font-medium leading-6'>{user?.fullName || ""}</h5>
-           </div>
+                <h5 className='text-white font-medium leading-6'>{user?.fullName || ""}</h5>
+            </div>
 
 
-           {SIDE_MENU_DATA.map((item,index)=>(
-            <button 
-            key={`menu_${index}`} 
-            className={`w-full flex items-center text-primary gap-4 text-[15px] ${activeMenu==item.label? "text-white bg-primary":""} py-3 px-6 rounded-lg mb-3`} 
-            onClick={()=>{handleClick(item.path)}}>
-                <item.icon className='text-xl'/>
-                {item.label}
-            </button>
-           ))}
+            {SIDE_MENU_DATA.map((item, index) => (
+                <button
+                    key={`menu_${index}`}
+                    className={`w-full flex items-center gap-4 text-[15px] ${item.path === 'logout'
+                            ? "text-red-500 hover:bg-red-500/10 border border-transparent hover:border-red-500/30"
+                            : activeMenu == item.label ? "text-white bg-primary" : "text-primary hover:bg-primary/10"
+                        } py-3 px-6 rounded-lg mb-3 transition-all`}
+                    onClick={() => { handleClick(item.path) }}>
+                    <item.icon className='text-xl' />
+                    {item.label}
+                </button>
+            ))}
+
+            <Modal isOpen={isLogoutModalOpen} onClose={() => setIsLogoutModalOpen(false)} title="Confirm Logout">
+                <div>
+                    <p className='text-sm text-white'>Are you sure you want to log out?</p>
+                    <div className='flex justify-end mt-6'>
+                        <button type='button' className='bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg font-medium transition-colors' onClick={handleLogout}>
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </Modal>
         </div>
     )
 }

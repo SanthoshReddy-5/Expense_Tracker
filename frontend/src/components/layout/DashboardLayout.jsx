@@ -3,22 +3,22 @@ import { UserContext } from '../../context/UserContext';
 import Navbar from './Navbar';
 import SideMenu from './SideMenu';
 
-const DashboardLayout = ({children,activeMenu}) => {
-const {user}=useContext(UserContext);
+const DashboardLayout = ({ children, activeMenu }) => {
+  const { user } = useContext(UserContext);
 
   return (
     <div className="">
-        <Navbar activeMenu={activeMenu}/>
+      <Navbar activeMenu={activeMenu} />
 
-        {user && (
-            <div className='flex bg-black'>
-                <div className='max-[1080px]:hidden'>
-                    <SideMenu activeMenu={activeMenu}/>
-                </div>
+      {user && (
+        <div className='flex bg-black'>
+          <div className='hidden lg:block w-64'>
+            <SideMenu activeMenu={activeMenu} />
+          </div>
 
-                <div className="grow mx-5">{children}</div>
-            </div>
-        )}
+          <div className="grow mx-5">{children}</div>
+        </div>
+      )}
     </div>
   )
 }

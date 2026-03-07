@@ -6,7 +6,8 @@ import SignUp from './pages/Auth/SignUp';
 import Home from './pages/Dashboard/Home';
 import Income from './pages/Dashboard/Income';
 import Expense from './pages/Dashboard/Expense';
-import {Toaster} from 'react-hot-toast';
+import Loans from './pages/Dashboard/Loans';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   return (
@@ -20,11 +21,35 @@ const App = () => {
             <Route path='/Dashboard' exact element={<Home />} />
             <Route path='/Income' exact element={<Income />} />
             <Route path='/Expense' exact element={<Expense />} />
+            <Route path='/Loans' exact element={<Loans />} />
           </Routes>
         </Router>
       </div>
 
-      <Toaster toastOptions={{className:"",style:{fontSize:"13px"}}}/>
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          className: "",
+          style: {
+            fontSize: "13px",
+            background: '#1f2937',
+            color: '#fff',
+            border: '1px solid #374151'
+          },
+          success: {
+            iconTheme: {
+              primary: '#10b981',
+              secondary: '#fff',
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: '#ef4444',
+              secondary: '#fff',
+            },
+          },
+        }}
+      />
 
     </UserProvider>
   );

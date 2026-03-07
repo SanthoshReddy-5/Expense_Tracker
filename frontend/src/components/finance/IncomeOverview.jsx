@@ -4,7 +4,7 @@ import CustomBarChart from '../charts/CustomBarChart';
 import { prepareIncomeBarChartData } from '../../utils/helper';
 
 const IncomeOverview = ({ transactions, onAddIncome }) => {
-  
+
   const [chatData, setChartData] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const IncomeOverview = ({ transactions, onAddIncome }) => {
     <div className='flex items-center justify-between'>
       <div className=''>
         <h5 className='text-lg text-white'>Income Overview</h5>
-        <p className='text-xs text-white mt-0.5 hidden md:block'>Track your earnings over time and analyze your income trends</p>
+        <p className='text-xs text-white mt-1 hidden md:block'>Track your earnings over time and analyze your income trends.</p>
       </div>
 
       <button className='add-btn' onClick={onAddIncome}>
@@ -26,7 +26,7 @@ const IncomeOverview = ({ transactions, onAddIncome }) => {
       </button>
     </div>
     <div className='mt-10'>
-      <CustomBarChart data={chatData}/>
+      <CustomBarChart data={chatData} />
     </div>
   </div>
   )

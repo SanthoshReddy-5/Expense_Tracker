@@ -1,5 +1,5 @@
 import React from 'react';
-import { LuLandmark, LuTrash2, LuTrendingUp, LuTrendingDown, LuCheckCircle, LuClock } from 'react-icons/lu';
+import { LuLandmark, LuTrash2, LuTrendingUp, LuTrendingDown, LuCheck, LuClock } from 'react-icons/lu';
 import { addThousandsSeparator } from '../../utils/helper';
 import moment from 'moment';
 
@@ -31,7 +31,7 @@ const LoanInfoCard = ({ loan, onDelete, onSettle }) => {
                     {!isSettled && (
                         <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                             <button className='text-gray-400 hover:text-green-400 cursor-pointer' onClick={onSettle} title="Mark as Settled">
-                                <LuCheckCircle size={18} />
+                                <LuCheck size={18} />
                             </button>
                             <button className='text-gray-400 hover:text-red-500 cursor-pointer' onClick={onDelete} title="Delete Record">
                                 <LuTrash2 size={18} />

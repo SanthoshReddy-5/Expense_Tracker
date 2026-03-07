@@ -11,29 +11,24 @@ const loanRoutes = require('./routes/loanRoutes');
 
 const app = express();
 
-app.use((req, res, next) => {
-  const allowedOrigins = [
-    "https://trackpocket.vercel.app",
-    "http://localhost:5173",
-    process.env.CLIENT_URL
-  ].filter(Boolean);
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://trackpocket.vercel.app"
+];
 
-  const origin = req.headers.origin;
-
-  if (allowedOrigins.includes(origin) || !origin) {
-    res.setHeader("Access-Control-Allow-Origin", origin || "*");
-  }
-
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With, Accept, Origin");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
-  }
-  next();
-});
-
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.use(express.json());
 
@@ -44,8 +39,6 @@ app.use("/api/v1/Income", incomeRoutes);
 app.use("/api/v1/Expense", expenseRoutes);
 app.use("/api/v1/Dashboard", dashboardRoutes);
 app.use("/api/v1/Loan", loanRoutes);
-
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const port = process.env.PORT || 5000;
 

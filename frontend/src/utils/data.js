@@ -21,12 +21,6 @@ export const SIDE_MENU_DATA = [
     },
     {
         id: "04",
-        label: "Loans",
-        icon: LuLandmark,
-        path: "/Loans"
-    },
-    {
-        id: "06",
         label: "Logout",
         icon: LuLogOut,
         path: "logout"

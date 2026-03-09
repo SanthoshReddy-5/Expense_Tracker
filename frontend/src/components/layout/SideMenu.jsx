@@ -25,10 +25,9 @@ const SideMenu = ({ activeMenu }) => {
     };
 
     return (
-        <div className='w-64 h-[calc(100vh-61px)] bg-black border-r border-white p-5 sticky top-[61px] z-20'>
+        <div className='w-64 h-[calc(100vh-61px)] bg-black border-r border-slate-700 p-5 sticky top-[61px] z-20'>
             <div className="flex flex-col items-center justify-center gap-5 mt-3 mb-7">
                 <CharAvatar fullName={user?.fullName} width="w-20" height="h-20" style="text-xl" />
-
                 <h5 className='text-white font-medium leading-6'>{user?.fullName || ""}</h5>
             </div>
 
@@ -36,8 +35,8 @@ const SideMenu = ({ activeMenu }) => {
             {SIDE_MENU_DATA.map((item, index) => (
                 <button
                     key={`menu_${index}`}
-                    className={`w-full flex items-center gap-4 text-[15px] ${item.path === 'logout'
-                            ? "text-red-500 hover:bg-red-500/10 border border-transparent hover:border-red-500/30"
+                    className={`w-full flex items-center gap-4 text-[15px] cursor-pointer ${item.path === 'logout'
+                            ? "text-primary hover:bg-red-500/10 border border-transparent hover:border-primary"
                             : activeMenu == item.label ? "text-white bg-primary" : "text-primary hover:bg-primary/10"
                         } py-3 px-6 rounded-lg mb-3 transition-all`}
                     onClick={() => { handleClick(item.path) }}>

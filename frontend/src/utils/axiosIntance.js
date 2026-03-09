@@ -29,7 +29,7 @@ axiosIntance.interceptors.response.use((response)=>{
         if(error.response.status===401){
            window.location.href="/SignIn";
         }else if(error.response.status===500){
-            console.error("Server Error!");
+            console.error("Server Error!",error);
         }
     }else if(error.code==="ECONNABORTED"){
         console.error("Request Timeout, Please try again later!");

@@ -1,13 +1,11 @@
 require("dotenv").config();
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const incomeRoutes = require('./routes/incomeRoutes');
 const expenseRoutes = require('./routes/expenseRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
-const loanRoutes = require('./routes/loanRoutes');
 
 const app = express();
 
@@ -38,7 +36,6 @@ app.use("/api/v1/Auth", authRoutes);
 app.use("/api/v1/Income", incomeRoutes);
 app.use("/api/v1/Expense", expenseRoutes);
 app.use("/api/v1/Dashboard", dashboardRoutes);
-app.use("/api/v1/Loan", loanRoutes);
 
 const port = process.env.PORT || 5000;
 

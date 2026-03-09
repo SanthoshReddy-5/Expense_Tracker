@@ -20,7 +20,7 @@ const IncomeOverview = ({ transactions, onAddIncome }) => {
         <p className='text-xs text-white mt-1 hidden md:block'>Track your earnings over time and analyze your income trends.</p>
       </div>
 
-      <button className='add-btn' onClick={onAddIncome}>
+      <button className='add-btn add-btn-fill' onClick={onAddIncome}>
         <LuPlus className='text-lg' />
         Add Income
       </button>

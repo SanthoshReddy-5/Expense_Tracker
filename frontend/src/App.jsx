@@ -6,7 +6,6 @@ import SignUp from './pages/Auth/SignUp';
 import Home from './pages/Dashboard/Home';
 import Income from './pages/Dashboard/Income';
 import Expense from './pages/Dashboard/Expense';
-import Loans from './pages/Dashboard/Loans';
 import { Toaster } from 'react-hot-toast';
 
 const App = () => {
@@ -21,7 +20,6 @@ const App = () => {
             <Route path='/Dashboard' exact element={<Home />} />
             <Route path='/Income' exact element={<Income />} />
             <Route path='/Expense' exact element={<Expense />} />
-            <Route path='/Loans' exact element={<Loans />} />
           </Routes>
         </Router>
       </div>
@@ -48,8 +46,7 @@ const App = () => {
               secondary: '#fff',
             },
           },
-        }}
-      />
+        }} />
 
     </UserProvider>
   );

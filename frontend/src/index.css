@@ -14,7 +14,7 @@
     }
 
     body {
-        background-color: #fcfbfc;
+        background-color: black;
         overflow-x: hidden;
     }
 }
@@ -28,7 +28,7 @@
 }
 
 .btn-primary {
-    @apply w-full text-sm font-medium text-white bg-primary md:text-primary md:bg-primary/50 shadow-lg p-2 md:px-4 md:py-3 rounded-md my-4 hover:bg-primary hover:text-white;
+    @apply w-full text-sm font-medium text-white bg-primary cursor-pointer shadow-lg p-2 md:px-4 md:py-3 rounded-md my-4 hover:bg-primary/80;
 }
 
 .card {
@@ -36,7 +36,7 @@
 }
 
 .card-btn {
-    @apply flex items-center gap-3 text-[12px] font-medium text-white bg-primary px-4 py-2 rounded-lg cursor-pointer border border-primary;
+    @apply flex items-center gap-3 text-[12px] font-medium text-white bg-primary hover:bg-primary/80 px-4 py-2 rounded-lg cursor-pointer border border-primary;
 }
 
 .add-btn {

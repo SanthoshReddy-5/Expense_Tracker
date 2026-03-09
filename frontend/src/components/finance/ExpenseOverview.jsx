@@ -21,7 +21,7 @@ const ExpenseOverview = ({ transactions, onAddExpense }) => {
           <p className='text-xs text-white mt-1 hidden md:block'>Track expenses over time and uncover valuable insights about your spending.</p>
         </div>
 
-        <button className='add-btn' onClick={onAddExpense}>
+        <button className='add-btn add-btn-fill' onClick={onAddExpense}>
           <LuPlus className='text-lg' /> Add Expense
         </button>
       </div>

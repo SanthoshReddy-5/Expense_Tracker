@@ -3,7 +3,6 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import { addThousandsSeparator } from '../../utils/helper';
 
 const CustomBarChart = ({ data }) => {
-
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (

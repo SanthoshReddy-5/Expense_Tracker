@@ -5,7 +5,6 @@ export const validateEmail=(email)=>{
     return regx.test(email);
 };
 
-
 export const getInitials=(name)=>{
    if(!name) return "";
 
@@ -26,7 +25,7 @@ export const addThousandsSeparator=(num)=>{
   const formattedInteger=integerPart.replace(/\B(?=(\d{3})+(?!\d))/g,",");
 
   return fractionalPart?`${formattedInteger}.${fractionalPart}`:formattedInteger;
-}
+};
 
 export const prepareExpenseBarChartData=(data=[])=>{
    const chartData=data.map((item)=>({
@@ -37,9 +36,6 @@ export const prepareExpenseBarChartData=(data=[])=>{
 
    return chartData;
 };
-
-
-
 
 export const prepareIncomeBarChartData = (data = []) => {
   const sortedData = [...data].filter(item => item.date).sort((a, b) => new Date(a.date) - new Date(b.date));

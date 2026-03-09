@@ -22,11 +22,5 @@ export const API_PATHS = {
         DELETE_EXPENSE: (expenseId) => `/api/v1/Expense/${expenseId}`,
         UPDATE_EXPENSE: (expenseId) => `/api/v1/Expense/${expenseId}`,
         DOWNLOAD_EXPENSE: "/api/v1/Expense/DownloadExpenseExcel"
-    },
-    LOAN: {
-        ADD_LOAN: "/api/v1/Loan/AddLoan",
-        GET_ALL_LOANS: "/api/v1/Loan/GetAllLoans",
-        UPDATE_LOAN: (loanId) => `/api/v1/Loan/${loanId}`,
-        DELETE_LOAN: (loanId) => `/api/v1/Loan/${loanId}`
     }
 };
